@@ -1,28 +1,38 @@
 #include <stdio.h>
 
 /**
- * main - Program to print fizz buzz
+ * print_triangle - prints a triangle of '#' characters of a given size
+ * @size: the size of the triangle to be printed
  *
- * Return: 0 for success
+ * Return: void
  */
+void print_triangle(int size)
+{
+	if (size <= 0)
+	{
+		putchar('\n'); /* print a new line and return */
+		return;
+	}
 
+	for (int row = 1; row <= size; row++) /* loop through each row */
+	{
+		for (int col = 1; col <= row; col++) /* print # for each column in the row */
+		{
+			putchar('#');
+		}
+		putchar('\n'); /* print a new line after each row */
+	}
+}
+
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
-	int num;
+	print_triangle(5); /* call the print_triangle function with size 5 */
 
-	for (num = 1; num <= 100; num++)
-	{
-		if ((num % 3 == 0) && (num % 5 == 0))
-			printf("%s", "FizzBuzz");
-		else if (num % 5 == 0)
-			printf("%s", "Buzz");
-		else if (num % 3 == 0)
-			printf("%s", "Fizz");
-		else
-			printf("%d", num);
-		if (num != 100)
-			printf(" ");
-	}
-	printf("\n");
 	return (0);
 }
+
